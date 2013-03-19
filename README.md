@@ -1,4 +1,4 @@
-# Alfred 2 Top Process Workflow
+# Alfred 2 Workflow for Google Search
 
 Alfred2 workflow for google search suggestion, instant search, site search, etc.
 
