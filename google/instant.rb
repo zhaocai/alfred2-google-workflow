@@ -7,7 +7,7 @@
 # HomePage       : https://github.com/zhaocai/
 # Version        : 0.1
 # Date Created   : Sun 10 Mar 2013 09:59:48 PM EDT
-# Last Modified  : Tue 19 Mar 2013 03:21:54 AM EDT
+# Last Modified  : Tue 19 Mar 2013 05:31:26 AM EDT
 # Tag            : [ ruby, alfred, workflow ]
 # Copyright      : © 2013 by Zhao Cai,
 #                  Released under current GPL license.
@@ -29,6 +29,11 @@ def generate_feedback(query)
 
   feedback = Feedback.new
 
+  feedback.add_item({
+    :title    => "Search '#{query}'",
+    :subtitle => "Open brower for more results.",
+    :arg      => URI.escape("http://www.google.com/search?as_q=#{query}&lr=lang_"),
+  })
   i = 0
   search.each do |result|
     feedback.add_item({
