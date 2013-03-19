@@ -2,7 +2,7 @@
 
 Alfred2 workflow for google search suggestion, instant search, site search, etc.
 
-It is also an example to use [bundler][gembundler] to include gems in alfred workflow.
+It is also an example to use [bundler][gembundler] to include gems in an alfred workflow. The command is `bundle install --standalone`.
 
 ![workflow](https://raw.github.com/zhaocai/alfred2-google-workflow/master/screenshots/workflow.png)
 
@@ -19,7 +19,9 @@ Keyword `gi`: get instant google search results in Alfred based on {query}.
 ### 3. Site Search
 
 Keyword `gs`: get instant google search results of front browser's site in Alfred based on {query}.
-supported browsers are: Safari, Google Chrome, Opera, OmniWeb, etc.
+
+Supported browsers are: Safari, Google Chrome, Opera, OmniWeb, etc.
+
 
 You can use `site:example.com query` if you do not want to search for current front browser's site.
 
@@ -29,11 +31,15 @@ You can use `site:example.com query` if you do not want to search for current fr
 
 Two ways are provided:
 
-1. You can download the [Top Processes.alfredworkflow](https://github.com/zhaocai/alfred2-google-workflow/raw/master/Google.alfredworkflow) and import to Alfred 2. This method is suitable for **regular users**.
+1. You can download the [Google.alfredworkflow](https://github.com/zhaocai/alfred2-google-workflow/raw/master/Google.alfredworkflow) and import to Alfred 2. This method is suitable for **regular users**.
 
 2. You can `git clone` or `fork` this repository and use `rake install` and `rake uninstall` to install.
 This method create a symlink to the alfred workflow directory: "~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows". This method is suitable for **developers**.
 
+## Reference
+
+1. [Site Search Workflow for Alfred 2][lucifr-site]
+2. [Google Search in-line results workflow][google-search-in-line-results-workflow]
 
 ## Copyright
 
@@ -53,3 +59,8 @@ this program. If not, see <http://www.gnu.org/licenses/>.
 
 
 [gembundler]: http://gembundler.com/
+
+[lucifr-site]: http://lucifr.com/2013/03/15/site-search-workflow-for-alfred-2/
+
+[google-search-in-line-results-workflow]: http://www.alfredforum.com/topic/940-google-search-in-line-results-workflow/?hl=%2Bgoogle+%2Bworkflow
+
