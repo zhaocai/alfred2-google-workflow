@@ -6,11 +6,33 @@
 	<string>me.zhaowu.google-suggest</string>
 	<key>connections</key>
 	<dict>
+		<key>20594C85-46DF-461E-9727-B0440A793828</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>ED86E1B9-3E03-4E88-9089-2605B9B5BF9D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>2E923056-3A48-4834-92A0-8F559CA53AFD</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>ED86E1B9-3E03-4E88-9089-2605B9B5BF9D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>347BA546-5D5F-4626-8365-A4FD6A1DF587</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BC48D647-DA65-49BB-9131-A860ED987F3D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -61,21 +83,6 @@
 	<string>Google</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>plusspaces</key>
-				<false/>
-				<key>url</key>
-				<string>http://www.google.com/search?as_q={query}&amp;lr=lang_</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>162A0644-70EA-468E-B2D4-590EF685234B</string>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -149,6 +156,65 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>keyword</key>
+				<string>gs</string>
+				<key>runningsubtext</key>
+				<string>searching...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./site.rb {query}</string>
+				<key>title</key>
+				<string>Google Site Search</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2E923056-3A48-4834-92A0-8F559CA53AFD</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>gt</string>
+				<key>subtext</key>
+				<string>'{query}'</string>
+				<key>text</key>
+				<string>Google Trends Search</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>347BA546-5D5F-4626-8365-A4FD6A1DF587</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>http://www.google.com/trends/explore#q={query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>BC48D647-DA65-49BB-9131-A860ED987F3D</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>keyword</key>
 				<string>gi</string>
 				<key>runningsubtext</key>
 				<string>searching...</string>
@@ -170,17 +236,17 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>keyword</key>
-				<string>gs</string>
+				<string>related</string>
 				<key>runningsubtext</key>
 				<string>searching...</string>
 				<key>script</key>
-				<string>/usr/bin/ruby ./site.rb {query}</string>
+				<string>/usr/bin/ruby ./related.rb {query}</string>
 				<key>title</key>
-				<string>Google Site Search</string>
+				<string>Google Related Search</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -189,7 +255,22 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>2E923056-3A48-4834-92A0-8F559CA53AFD</string>
+			<string>20594C85-46DF-461E-9727-B0440A793828</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>http://www.google.com/search?as_q={query}&amp;lr=lang_</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>162A0644-70EA-468E-B2D4-590EF685234B</string>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -201,20 +282,35 @@
 			<key>ypos</key>
 			<real>90</real>
 		</dict>
+		<key>20594C85-46DF-461E-9727-B0440A793828</key>
+		<dict>
+			<key>ypos</key>
+			<real>540</real>
+		</dict>
 		<key>2E923056-3A48-4834-92A0-8F559CA53AFD</key>
 		<dict>
 			<key>ypos</key>
 			<real>390</real>
 		</dict>
+		<key>347BA546-5D5F-4626-8365-A4FD6A1DF587</key>
+		<dict>
+			<key>ypos</key>
+			<real>720</real>
+		</dict>
 		<key>63F60794-BB56-4415-9372-BAF974C3A7E1</key>
 		<dict>
 			<key>ypos</key>
-			<real>60</real>
+			<real>100</real>
 		</dict>
 		<key>89A45B8D-213F-45C8-A20D-552A58759650</key>
 		<dict>
 			<key>ypos</key>
 			<real>180</real>
+		</dict>
+		<key>BC48D647-DA65-49BB-9131-A860ED987F3D</key>
+		<dict>
+			<key>ypos</key>
+			<real>710</real>
 		</dict>
 		<key>DC688C1F-0AF8-4CC7-929C-03FC8177A130</key>
 		<dict>

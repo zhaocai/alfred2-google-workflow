@@ -25,7 +25,14 @@ Supported browsers are: Safari, Google Chrome, Opera, OmniWeb, etc.
 
 You can use `site:example.com query` if you do not want to search for current front browser's site.
 
-![site search](https://raw.github.com/zhaocai/alfred2-google-workflow/master/screenshots/site_search.png)
+### 4. Related Search
+
+Keyword `related`: get related google search results of front browser's site in Alfred based on {query}.
+
+Supported browsers are: Safari, Google Chrome, Opera, OmniWeb, etc.
+
+You can use `related:example.com query` if you do not want to search for current front browser's site.
+
 
 ## Installation
 

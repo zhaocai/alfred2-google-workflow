@@ -2,12 +2,12 @@
 # encoding: utf-8
 
 # ============== = ===========================================================
-# Description    : Alfred 2 Google Instant Search Workflow
+# Description    : Alfred 2 Google Site Search Workflow
 # Author         : Zhao Cai <caizhaoff@gmail.com>
 # HomePage       : https://github.com/zhaocai/
 # Version        : 0.1
 # Date Created   : Sun 10 Mar 2013 09:59:48 PM EDT
-# Last Modified  : Tue 19 Mar 2013 07:09:13 AM EDT
+# Last Modified  : Tue 19 Mar 2013 06:37:11 PM EDT
 # Tag            : [ ruby, alfred, workflow ]
 # Copyright      : © 2013 by Zhao Cai,
 #                  Released under current GPL license.
