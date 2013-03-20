@@ -7,7 +7,7 @@
 # HomePage       : https://github.com/zhaocai/
 # Version        : 0.1
 # Date Created   : Sun 10 Mar 2013 09:59:48 PM EDT
-# Last Modified  : Tue 19 Mar 2013 08:11:25 PM EDT
+# Last Modified  : Tue 19 Mar 2013 08:50:14 PM EDT
 # Tag            : [ ruby, alfred, workflow ]
 # Copyright      : © 2013 by Zhao Cai,
 #                  Released under current GPL license.
@@ -52,7 +52,7 @@ def generate_feedback(query)
     query = m[3]
   else
     uri = URI.parse(%x{osascript browser_url.scpt})
-    related_query = %Q{related:#{uri.host}}
+    related_query = %Q{related:#{uri.to_s}}
   end
   feedback.add_item({
     :title    => "Search '#{related_query}'",
