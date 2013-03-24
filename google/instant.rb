@@ -7,7 +7,7 @@
 # HomePage       : https://github.com/zhaocai/
 # Version        : 0.1
 # Date Created   : Sun 10 Mar 2013 09:59:48 PM EDT
-# Last Modified  : Tue 19 Mar 2013 07:09:25 AM EDT
+# Last Modified  : Sat 23 Mar 2013 10:00:27 PM EDT
 # Tag            : [ ruby, alfred, workflow ]
 # Copyright      : © 2013 by Zhao Cai,
 #                  Released under current GPL license.

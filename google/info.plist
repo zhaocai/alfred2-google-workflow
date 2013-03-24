@@ -86,29 +86,17 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>keyword</key>
-				<string>g</string>
-				<key>runningsubtext</key>
-				<string>Retrieving search suggestions ...</string>
-				<key>script</key>
-				<string>/usr/bin/ruby ./suggest.rb {query}</string>
-				<key>subtext</key>
-				<string>Search Google with Suggestions</string>
-				<key>title</key>
-				<string>Search Google</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
 				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>63F60794-BB56-4415-9372-BAF974C3A7E1</string>
+			<string>ED86E1B9-3E03-4E88-9089-2605B9B5BF9D</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -136,33 +124,20 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>plusspaces</key>
-				<false/>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>ED86E1B9-3E03-4E88-9089-2605B9B5BF9D</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>4</integer>
+				<integer>36</integer>
 				<key>keyword</key>
-				<string>gs</string>
+				<string>g</string>
 				<key>runningsubtext</key>
-				<string>searching...</string>
+				<string>Retrieving search suggestions ...</string>
 				<key>script</key>
-				<string>/usr/bin/ruby ./site.rb {query}</string>
+				<string>/usr/bin/ruby ./suggest.rb {query}</string>
+				<key>subtext</key>
+				<string>Search Google with Suggestions</string>
 				<key>title</key>
-				<string>Google Site Search</string>
+				<string>Search Google</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -171,7 +146,7 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>2E923056-3A48-4834-92A0-8F559CA53AFD</string>
+			<string>63F60794-BB56-4415-9372-BAF974C3A7E1</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -195,6 +170,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>36</integer>
+				<key>keyword</key>
+				<string>gs</string>
+				<key>runningsubtext</key>
+				<string>searching...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./site.rb {query}</string>
+				<key>title</key>
+				<string>Google Site Search</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2E923056-3A48-4834-92A0-8F559CA53AFD</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>plusspaces</key>
 				<false/>
 				<key>url</key>
@@ -213,7 +213,7 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>4</integer>
+				<integer>36</integer>
 				<key>keyword</key>
 				<string>gi</string>
 				<key>runningsubtext</key>
@@ -238,7 +238,7 @@
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>4</integer>
+				<integer>36</integer>
 				<key>keyword</key>
 				<string>related</string>
 				<key>runningsubtext</key>
