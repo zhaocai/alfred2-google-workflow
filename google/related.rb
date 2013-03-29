@@ -7,7 +7,7 @@
 # HomePage       : https://github.com/zhaocai/
 # Version        : 0.1
 # Date Created   : Sun 10 Mar 2013 09:59:48 PM EDT
-# Last Modified  : Tue 19 Mar 2013 08:50:14 PM EDT
+# Last Modified  : Thu 28 Mar 2013 11:48:55 PM EDT
 # Tag            : [ ruby, alfred, workflow ]
 # Copyright      : © 2013 by Zhao Cai,
 #                  Released under current GPL license.
@@ -15,33 +15,17 @@
 
 ($LOAD_PATH << File.expand_path("..", __FILE__)).uniq!
 
-require "rubygems"
+require 'rubygems' unless defined? Gem
 require "bundle/bundler/setup"
-
+require "alfred"
 
 require 'google-search'
-require "lib/alfred_feedback.rb"
 require 'uri'
 
-def valid_result?(result, query)
-  if query.empty?
-    return true 
-  end
-  r = true
-  query_words = query.split(" ")
-  s = "#{result.title} #{result.uri}"
-  r = true
-  query_words.each { |q|
-    unless s.include?(q)
-      r = false
-    end
-  }
-  r
-end
 
-def generate_feedback(query)
+def generate_feedback(alfred, query)
 
-  feedback = Feedback.new
+  feedback = alfred.feedback
 
   if query.start_with?('related:')
     # not working in ruby 1.8.7
@@ -55,25 +39,25 @@ def generate_feedback(query)
     related_query = %Q{related:#{uri.to_s}}
   end
   feedback.add_item({
-    :title    => "Search '#{related_query}'",
+    :uid      => "Google Default Search",
+    :title    => "Search '#{related_query} #{query}'",
     :subtitle => "Open brower for more results.",
-    :arg      => URI.escape("http://www.google.com/search?as_q=#{related_query}&lr=lang_"),
+    :arg      => URI.escape("http://www.google.com/search?as_q=#{related_query}+#{query}&lr=lang_"),
   })
 
-  search = Google::Search::Web.new(:query => "#{related_query}")
+  search = Google::Search::Web.new(:query => "#{related_query}+#{query}")
 
 
   i = 0
   search.each do |result|
-    if valid_result?(result, query)
-      feedback.add_item({
-        :title    => result.title,
-        :subtitle => result.uri,
-        :arg      => result.uri,
-      })
-      i = 1 + i
-      break if i > 20
-    end
+    feedback.add_item({
+      :uid      => result.uri,
+      :title    => result.title,
+      :subtitle => result.uri,
+      :arg      => result.uri,
+    })
+    i = 1 + i
+    break if i > 40
   end
 
 
@@ -82,9 +66,11 @@ end
 
 if __FILE__ == $PROGRAM_NAME
 
-  query = ARGV.join(" ").strip
-
-  generate_feedback(query)
+  Alfred.with_friendly_error do |alfred|
+    alfred.with_rescue_feedback = true
+    query = ARGV.join(" ").strip
+    generate_feedback(alfred, query)
+  end
 end
 
 

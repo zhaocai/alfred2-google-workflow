@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>me.zhaowu.google-suggest</string>
+	<string>me.zhaowu.google</string>
 	<key>connections</key>
 	<dict>
 		<key>20594C85-46DF-461E-9727-B0440A793828</key>
@@ -33,6 +33,17 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>BC48D647-DA65-49BB-9131-A860ED987F3D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>4A9D23E0-F44E-4963-8E6D-267CF8F13BAF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FCDA9328-F736-413F-BBE8-CD6922779A43</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -86,6 +97,33 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>36</integer>
+				<key>keyword</key>
+				<string>g</string>
+				<key>runningsubtext</key>
+				<string>Retrieving search suggestions ...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./suggest.rb {query}</string>
+				<key>subtext</key>
+				<string>Search Google with Suggestions</string>
+				<key>title</key>
+				<string>Search Google</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>63F60794-BB56-4415-9372-BAF974C3A7E1</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>plusspaces</key>
 				<false/>
 				<key>url</key>
@@ -126,39 +164,12 @@
 			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
-				<key>escaping</key>
-				<integer>36</integer>
-				<key>keyword</key>
-				<string>g</string>
-				<key>runningsubtext</key>
-				<string>Retrieving search suggestions ...</string>
-				<key>script</key>
-				<string>/usr/bin/ruby ./suggest.rb {query}</string>
-				<key>subtext</key>
-				<string>Search Google with Suggestions</string>
-				<key>title</key>
-				<string>Search Google</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>63F60794-BB56-4415-9372-BAF974C3A7E1</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
 				<key>keyword</key>
 				<string>gt</string>
 				<key>subtext</key>
 				<string>'{query}'</string>
 				<key>text</key>
-				<string>Google Trends Search</string>
+				<string>Search Google Trends for '{query}'</string>
 				<key>withspace</key>
 				<true/>
 			</dict>
@@ -180,8 +191,10 @@
 				<string>searching...</string>
 				<key>script</key>
 				<string>/usr/bin/ruby ./site.rb {query}</string>
+				<key>subtext</key>
+				<string>with site from the front browser</string>
 				<key>title</key>
-				<string>Google Site Search</string>
+				<string>Google Site Search for '{query}'</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -220,8 +233,10 @@
 				<string>searching...</string>
 				<key>script</key>
 				<string>/usr/bin/ruby ./instant.rb {query}</string>
+				<key>subtext</key>
+				<string>Just type and go...</string>
 				<key>title</key>
-				<string>Google Instant Search</string>
+				<string>Google Instant Search for '{query}'</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -245,8 +260,10 @@
 				<string>searching...</string>
 				<key>script</key>
 				<string>/usr/bin/ruby ./related.rb {query}</string>
+				<key>subtext</key>
+				<string>wite site from front browser</string>
 				<key>title</key>
-				<string>Google Related Search</string>
+				<string>Google Related Search for '{query}'</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -272,6 +289,59 @@
 			<key>uid</key>
 			<string>162A0644-70EA-468E-B2D4-590EF685234B</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<false/>
+				<key>filetypes</key>
+				<array>
+					<string>com.apple.safari.bookmark</string>
+					<string>com.apple.safari.history</string>
+					<string>com.apple.web-internet-location</string>
+					<string>dyn.ah62d4rv4ge81n6xq</string>
+				</array>
+				<key>name</key>
+				<string>Site Search</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>4A9D23E0-F44E-4963-8E6D-267CF8F13BAF</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>#!/usr/bin/env ruby
+				# -*- coding: utf-8 -*-
+				
+				require 'uri'
+				
+				path = &quot;{query}&quot;
+				
+				unless File.exist?(path)
+				  raise ArgumentError, &quot;#{path} does not exist!&quot;
+				end
+				
+				uri = URI.parse(%x{mdls -name kMDItemURL -raw '#{path}'})
+				
+				applescript = &lt;&lt;-APPLESCRIPT
+					tell application &quot;Alfred 2&quot; to search &quot;gs site:#{uri.host} &quot;
+				APPLESCRIPT
+				
+				%x{osascript -e '#{applescript}'}
+				</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>FCDA9328-F736-413F-BBE8-CD6922779A43</string>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -280,47 +350,57 @@
 		<key>162A0644-70EA-468E-B2D4-590EF685234B</key>
 		<dict>
 			<key>ypos</key>
-			<real>90</real>
+			<real>90.0</real>
 		</dict>
 		<key>20594C85-46DF-461E-9727-B0440A793828</key>
 		<dict>
 			<key>ypos</key>
-			<real>540</real>
+			<real>540.0</real>
 		</dict>
 		<key>2E923056-3A48-4834-92A0-8F559CA53AFD</key>
 		<dict>
 			<key>ypos</key>
-			<real>390</real>
+			<real>410.0</real>
 		</dict>
 		<key>347BA546-5D5F-4626-8365-A4FD6A1DF587</key>
 		<dict>
 			<key>ypos</key>
-			<real>720</real>
+			<real>720.0</real>
+		</dict>
+		<key>4A9D23E0-F44E-4963-8E6D-267CF8F13BAF</key>
+		<dict>
+			<key>ypos</key>
+			<real>650.0</real>
 		</dict>
 		<key>63F60794-BB56-4415-9372-BAF974C3A7E1</key>
 		<dict>
 			<key>ypos</key>
-			<real>100</real>
+			<real>100.0</real>
 		</dict>
 		<key>89A45B8D-213F-45C8-A20D-552A58759650</key>
 		<dict>
 			<key>ypos</key>
-			<real>180</real>
+			<real>180.0</real>
 		</dict>
 		<key>BC48D647-DA65-49BB-9131-A860ED987F3D</key>
 		<dict>
 			<key>ypos</key>
-			<real>710</real>
+			<real>710.0</real>
 		</dict>
 		<key>DC688C1F-0AF8-4CC7-929C-03FC8177A130</key>
 		<dict>
 			<key>ypos</key>
-			<real>270</real>
+			<real>270.0</real>
 		</dict>
 		<key>ED86E1B9-3E03-4E88-9089-2605B9B5BF9D</key>
 		<dict>
 			<key>ypos</key>
-			<real>210</real>
+			<real>210.0</real>
+		</dict>
+		<key>FCDA9328-F736-413F-BBE8-CD6922779A43</key>
+		<dict>
+			<key>ypos</key>
+			<real>570.0</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
