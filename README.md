@@ -21,8 +21,12 @@ Keyword `gs`: get instant google search results of front browser's site in Alfre
 
 Supported browsers are: Safari, Google Chrome, Opera, OmniWeb, etc.
 
-
 You can use `site:example.com query` if you do not want to search for current front browser's site.
+
+For example, open safari with **github.com**, type `gs alfred2 workflow` to find related projects hosted in github.
+
+![site search](https://raw.github.com/zhaocai/alfred2-google-workflow/master/screenshots/site_search.png)
+
 
 ### 4. Related Search
 
