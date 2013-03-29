@@ -1,8 +1,7 @@
 # Alfred 2 Workflow for Google Search
 
-Alfred2 workflow for google search suggestion, instant search, site search, etc.
+Alfred2 workflow for google search suggestion, instant search, site search, related search, etc.
 
-It is also an example to use [bundler][gembundler] to include gems in an alfred workflow. The command is `bundle install --standalone`.
 
 ![workflow](https://raw.github.com/zhaocai/alfred2-google-workflow/master/screenshots/workflow.png)
 
