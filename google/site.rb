@@ -7,7 +7,7 @@
 # HomePage       : https://github.com/zhaocai/
 # Version        : 0.1
 # Date Created   : Sun 10 Mar 2013 09:59:48 PM EDT
-# Last Modified  : Thu 28 Mar 2013 11:40:53 PM EDT
+# Last Modified  : Fri 29 Mar 2013 09:23:25 AM EDT
 # Tag            : [ ruby, alfred, workflow ]
 # Copyright      : © 2013 by Zhao Cai,
 #                  Released under current GPL license.
@@ -50,7 +50,7 @@ def generate_feedback(alfred, query)
       :arg      => result.uri,
     })
     i = 1 + i
-    break if i > 20
+    break if i > 50
   end
 
   puts feedback.to_alfred

@@ -1,8 +1,10 @@
 # encoding: utf-8
 
 require 'uri'
-require 'nokogiri'
 require 'net/http'
+require "rexml/document"
+
+
 
 class GoogleSuggest
   class Configure
@@ -40,15 +42,17 @@ class GoogleSuggest
              :hl => self.home_language,
              :q => URI.encode(keyword)}
     res = http_get('/complete/search', query)
-    xml = Nokogiri::XML(res.body.to_s)
+
+    doc = REXML::Document.new(res.body.to_s)
+
     suggestions = []
-    xml.css('toplevel CompleteSuggestion').each do |node|
-      suggest = {}
-      node.children.each do |child|
-        suggest[child.name] = (child['data'] || child['int'].to_i)
+    doc.elements.each("toplevel/CompleteSuggestion/suggestion") { |elem |
+      data = elem.attributes["data"]
+      unless data.eql? query
+        num_queries = elem.attributes["num_queries"]
+        suggestions << {:data => data,  :num_queries => num_queries}
       end
-      suggestions << suggest
-    end
+    }
     return suggestions
   end
 

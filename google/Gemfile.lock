@@ -1,9 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    alfred-workflow (1.2.7)
-      logging (~> 1.8.0)
-      plist (~> 3.1.0)
+    alfred-workflow (1.6.0)
+      logging (>= 1.8.0)
+      plist (>= 3.1.0)
     google-search (1.0.3)
       json
     json (1.7.7)
