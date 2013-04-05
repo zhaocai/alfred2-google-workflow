@@ -47,10 +47,10 @@ class GoogleSuggest
 
     suggestions = []
     doc.elements.each("toplevel/CompleteSuggestion/suggestion") { |elem |
-      data = elem.attributes["data"]
-      unless data.eql? query
-        num_queries = elem.attributes["num_queries"]
-        suggestions << {:data => data,  :num_queries => num_queries}
+      text = elem.attributes["data"]
+      unless text.eql? query
+        count = elem.attributes["num_queries"]
+        suggestions << {:text => text,  :count => count}
       end
     }
     return suggestions

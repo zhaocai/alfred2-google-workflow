@@ -41,10 +41,10 @@ def generate_feedback(alfred, query)
   icon = {:type => "default", :name => "icon.png"}
   gs.suggest_for(query).each do |s|
     feedback.add_item({
-      :uid      => "Google Search: #{s[:data]}"    ,
-      :title    => s[:data]                        ,
-      :subtitle => "Search Google for #{s[:data]}" ,
-      :arg      => s[:data]                        ,
+      :uid      => "Google Search: #{s[:text]}"    ,
+      :title    => s[:text]                        ,
+      :subtitle => "Search Google for #{s[:text]}" ,
+      :arg      => s[:text]                        ,
       :icon     => icon                                   ,
     })
   end
