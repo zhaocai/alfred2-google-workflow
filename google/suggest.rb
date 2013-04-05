@@ -41,7 +41,6 @@ def generate_feedback(alfred, query)
   icon = {:type => "default", :name => "icon.png"}
   gs.suggest_for(query).each do |s|
     feedback.add_item({
-      :uid      => result.uri                             ,
       :title    => s['suggestion']                        ,
       :subtitle => "Search Google for #{s['suggestion']}" ,
       :arg      => s['suggestion']                        ,
