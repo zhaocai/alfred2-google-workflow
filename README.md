@@ -5,6 +5,8 @@ Alfred2 workflow for google search suggestion, instant search, site search, rela
 
 ![workflow](https://raw.github.com/zhaocai/alfred2-google-workflow/master/screenshots/workflow.png)
 
+
+
 ## Usage
 
 ### 1. Search Suggestion
@@ -36,6 +38,9 @@ Supported browsers are: Safari, Google Chrome, Opera, OmniWeb, etc.
 
 You can use `related:example.com query` if you do not want to search for current front browser's site.
 
+## Tips
+
+1. `shift` key to preview website.
 
 ## Installation
 
