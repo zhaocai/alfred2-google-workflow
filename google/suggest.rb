@@ -53,6 +53,9 @@ def generate_feedback(alfred, query)
 end
 
 if __FILE__ == $PROGRAM_NAME
+  if ['/h', '/help'].include? ARGV[0]
+    exit 0
+  end
 
   Alfred.with_friendly_error do |alfred|
     alfred.with_rescue_feedback = true

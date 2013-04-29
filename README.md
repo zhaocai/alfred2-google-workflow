@@ -5,8 +5,6 @@ Alfred2 workflow for google search suggestion, instant search, site search, rela
 
 ![workflow](https://raw.github.com/zhaocai/alfred2-google-workflow/master/screenshots/workflow.png)
 
-
-
 ## Usage
 
 ### 1. Search Suggestion
@@ -48,7 +46,7 @@ Two ways are provided:
 
 1. You can download the [Google.alfredworkflow](https://github.com/zhaocai/alfred2-google-workflow/raw/master/Google.alfredworkflow) and import to Alfred 2. This method is suitable for **regular users**.
 
-2. You can `git clone` or `fork` this repository and use `rake install` and `rake uninstall` to install.
+2. You can `git clone` or `fork` this repository and use `rake install` and `rake uninstall` to install and uninstall.
 This method create a symlink to the alfred workflow directory: "~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows". This method is suitable for **developers**.
 
 ## Reference

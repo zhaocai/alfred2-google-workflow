@@ -6,6 +6,28 @@
 	<string>me.zhaowu.google</string>
 	<key>connections</key>
 	<dict>
+		<key>079103B5-688A-4CAD-A93F-F4BC99AB739F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BEC5A753-4A4E-4260-873C-25B58DAD1027</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>134FEC38-77CA-42CD-A520-B42BD0F6B6FC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BEC5A753-4A4E-4260-873C-25B58DAD1027</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>20594C85-46DF-461E-9727-B0440A793828</key>
 		<array>
 			<dict>
@@ -91,6 +113,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>BD2CD1D4-2752-4F41-8139-C826A82930FE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BEC5A753-4A4E-4260-873C-25B58DAD1027</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>C01139EB-3E28-401F-86AA-19290DC35752</key>
 		<array>
 			<dict>
@@ -127,6 +160,119 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>http://www.google.com/search?as_q={query}&amp;lr=lang_</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>162A0644-70EA-468E-B2D4-590EF685234B</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>36</integer>
+				<key>keyword</key>
+				<string>g</string>
+				<key>runningsubtext</key>
+				<string>Retrieving search suggestions ...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./suggest.rb {query}</string>
+				<key>subtext</key>
+				<string>Search Google with Suggestions</string>
+				<key>title</key>
+				<string>Search Google</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>63F60794-BB56-4415-9372-BAF974C3A7E1</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>hotkey</key>
+				<integer>1</integer>
+				<key>hotmod</key>
+				<integer>524288</integer>
+				<key>hotstring</key>
+				<string>S</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>89A45B8D-213F-45C8-A20D-552A58759650</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>ED86E1B9-3E03-4E88-9089-2605B9B5BF9D</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>36</integer>
+				<key>keyword</key>
+				<string>gi</string>
+				<key>runningsubtext</key>
+				<string>searching...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./instant.rb {query}</string>
+				<key>subtext</key>
+				<string>Just type and go...</string>
+				<key>title</key>
+				<string>Google Instant Search for '{query}'</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>DC688C1F-0AF8-4CC7-929C-03FC8177A130</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>D6682F94-5F2E-48FD-B308-0D8CF2153EED</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
@@ -150,6 +296,127 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>2E923056-3A48-4834-92A0-8F559CA53AFD</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>36</integer>
+				<key>keyword</key>
+				<string>related</string>
+				<key>runningsubtext</key>
+				<string>searching...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./related.rb {query}</string>
+				<key>subtext</key>
+				<string>wite site from front browser</string>
+				<key>title</key>
+				<string>Google Related Search for '{query}'</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>20594C85-46DF-461E-9727-B0440A793828</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>require 'rubygems' unless defined? Gem
+
+require "bundle/bundler/setup"
+require "alfred"
+
+require 'uri'
+
+path = "{query}"
+Alfred.with_friendly_error do |alfred|
+  unless File.exist?(path)
+    raise ArgumentError, "#{path} does not exist!"
+  end
+
+  uri = URI.parse(%x{mdls -name kMDItemURL -raw '#{path}'})
+
+  Alfred.search("gs site:#{uri.host} ")
+end</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>FCDA9328-F736-413F-BBE8-CD6922779A43</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<false/>
+				<key>filetypes</key>
+				<array>
+					<string>com.apple.safari.bookmark</string>
+					<string>com.apple.safari.history</string>
+					<string>com.apple.web-internet-location</string>
+					<string>dyn.ah62d4rv4ge81n6xq</string>
+				</array>
+				<key>name</key>
+				<string>Site Search</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>4A9D23E0-F44E-4963-8E6D-267CF8F13BAF</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>C5C63058-C4C3-4B70-8822-39513324C235</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>require 'rubygems' unless defined? Gem
+
+require "bundle/bundler/setup"
+require "alfred"
+
+require 'uri'
+
+path = "{query}"
+Alfred.with_friendly_error do |alfred|
+  unless File.exist?(path)
+    raise ArgumentError, "#{path} does not exist!"
+  end
+
+  uri = URI.parse(%x{mdls -name kMDItemURL -raw '#{path}'})
+  puts uri.to_s
+end</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>3AB1E143-62B3-4BE3-9600-03EEAD67DDC3</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -197,19 +464,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>C5C63058-C4C3-4B70-8822-39513324C235</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -225,139 +479,6 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>347BA546-5D5F-4626-8365-A4FD6A1DF587</string>
-		</dict>
-		<dict>
-			<key>type</key>
-			<string>alfred.workflow.output.largetype</string>
-			<key>uid</key>
-			<string>D6682F94-5F2E-48FD-B308-0D8CF2153EED</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>plusspaces</key>
-				<false/>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>ED86E1B9-3E03-4E88-9089-2605B9B5BF9D</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>36</integer>
-				<key>keyword</key>
-				<string>g</string>
-				<key>runningsubtext</key>
-				<string>Retrieving search suggestions ...</string>
-				<key>script</key>
-				<string>/usr/bin/ruby ./suggest.rb {query}</string>
-				<key>subtext</key>
-				<string>Search Google with Suggestions</string>
-				<key>title</key>
-				<string>Search Google</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>63F60794-BB56-4415-9372-BAF974C3A7E1</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>36</integer>
-				<key>keyword</key>
-				<string>related</string>
-				<key>runningsubtext</key>
-				<string>searching...</string>
-				<key>script</key>
-				<string>/usr/bin/ruby ./related.rb {query}</string>
-				<key>subtext</key>
-				<string>wite site from front browser</string>
-				<key>title</key>
-				<string>Google Related Search for '{query}'</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>20594C85-46DF-461E-9727-B0440A793828</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>1</integer>
-				<key>hotkey</key>
-				<integer>1</integer>
-				<key>hotmod</key>
-				<integer>524288</integer>
-				<key>hotstring</key>
-				<string>S</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>89A45B8D-213F-45C8-A20D-552A58759650</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>plusspaces</key>
-				<false/>
-				<key>url</key>
-				<string>http://www.google.com/search?as_q={query}&amp;lr=lang_</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>162A0644-70EA-468E-B2D4-590EF685234B</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>acceptsmulti</key>
-				<false/>
-				<key>filetypes</key>
-				<array>
-					<string>com.apple.safari.bookmark</string>
-					<string>com.apple.safari.history</string>
-					<string>com.apple.web-internet-location</string>
-					<string>dyn.ah62d4rv4ge81n6xq</string>
-				</array>
-				<key>name</key>
-				<string>Site Search</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.action</string>
-			<key>uid</key>
-			<string>4A9D23E0-F44E-4963-8E6D-267CF8F13BAF</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -378,95 +499,89 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>36</integer>
+				<integer>2</integer>
 				<key>keyword</key>
-				<string>gi</string>
-				<key>runningsubtext</key>
-				<string>searching...</string>
-				<key>script</key>
-				<string>/usr/bin/ruby ./instant.rb {query}</string>
+				<string>g /help</string>
 				<key>subtext</key>
-				<string>Just type and go...</string>
-				<key>title</key>
-				<string>Google Instant Search for '{query}'</string>
-				<key>type</key>
-				<integer>0</integer>
+				<string>http://zhaocai.github.io/alfred2-google-workflow/</string>
+				<key>text</key>
+				<string>Help! Show Me the Usage Page!</string>
 				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>079103B5-688A-4CAD-A93F-F4BC99AB739F</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>http://zhaocai.github.io/alfred2-google-workflow/</string>
+				<key>utf8</key>
 				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>DC688C1F-0AF8-4CC7-929C-03FC8177A130</string>
+			<string>BEC5A753-4A4E-4260-873C-25B58DAD1027</string>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>script</key>
-				<string>require 'rubygems' unless defined? Gem
-
-require "bundle/bundler/setup"
-require "alfred"
-
-require 'uri'
-
-path = "{query}"
-Alfred.with_friendly_error do |alfred|
-  unless File.exist?(path)
-    raise ArgumentError, "#{path} does not exist!"
-  end
-
-  uri = URI.parse(%x{mdls -name kMDItemURL -raw '#{path}'})
-
-  Alfred.search("gs site:#{uri.host} ")
-end</string>
-				<key>type</key>
+				<key>argumenttype</key>
 				<integer>2</integer>
+				<key>keyword</key>
+				<string>gs /help</string>
+				<key>subtext</key>
+				<string>http://zhaocai.github.io/alfred2-google-workflow/</string>
+				<key>text</key>
+				<string>Help! Show Me the Usage Page!</string>
+				<key>withspace</key>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>FCDA9328-F736-413F-BBE8-CD6922779A43</string>
+			<string>134FEC38-77CA-42CD-A520-B42BD0F6B6FC</string>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>script</key>
-				<string>require 'rubygems' unless defined? Gem
-
-require "bundle/bundler/setup"
-require "alfred"
-
-require 'uri'
-
-path = "{query}"
-Alfred.with_friendly_error do |alfred|
-  unless File.exist?(path)
-    raise ArgumentError, "#{path} does not exist!"
-  end
-
-  uri = URI.parse(%x{mdls -name kMDItemURL -raw '#{path}'})
-  puts uri.to_s
-end</string>
-				<key>type</key>
+				<key>argumenttype</key>
 				<integer>2</integer>
+				<key>keyword</key>
+				<string>gi /help</string>
+				<key>subtext</key>
+				<string>http://zhaocai.github.io/alfred2-google-workflow/</string>
+				<key>text</key>
+				<string>Help! Show Me the Usage Page!</string>
+				<key>withspace</key>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>3AB1E143-62B3-4BE3-9600-03EEAD67DDC3</string>
+			<string>BD2CD1D4-2752-4F41-8139-C826A82930FE</string>
 		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>079103B5-688A-4CAD-A93F-F4BC99AB739F</key>
+		<dict>
+			<key>ypos</key>
+			<real>1040</real>
+		</dict>
+		<key>134FEC38-77CA-42CD-A520-B42BD0F6B6FC</key>
+		<dict>
+			<key>ypos</key>
+			<real>1160</real>
+		</dict>
 		<key>162A0644-70EA-468E-B2D4-590EF685234B</key>
 		<dict>
 			<key>ypos</key>
@@ -516,6 +631,16 @@ end</string>
 		<dict>
 			<key>ypos</key>
 			<real>890</real>
+		</dict>
+		<key>BD2CD1D4-2752-4F41-8139-C826A82930FE</key>
+		<dict>
+			<key>ypos</key>
+			<real>1280</real>
+		</dict>
+		<key>BEC5A753-4A4E-4260-873C-25B58DAD1027</key>
+		<dict>
+			<key>ypos</key>
+			<real>1130</real>
 		</dict>
 		<key>C01139EB-3E28-401F-86AA-19290DC35752</key>
 		<dict>
