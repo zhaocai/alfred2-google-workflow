@@ -41,7 +41,6 @@ def generate_feedback(alfred, query)
   })
 
   search = Google::Search::Web.new(:query => "#{query}")
-  i = 0
   search.each do |result|
     feedback.add_item({
       :uid      => result.uri,
@@ -49,8 +48,6 @@ def generate_feedback(alfred, query)
       :subtitle => result.uri,
       :arg      => result.uri,
     })
-    i = 1 + i
-    break if i > 50
   end
 
   puts feedback.to_alfred

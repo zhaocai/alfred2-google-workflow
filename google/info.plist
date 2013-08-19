@@ -171,6 +171,8 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>162A0644-70EA-468E-B2D4-590EF685234B</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -198,6 +200,8 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>63F60794-BB56-4415-9372-BAF974C3A7E1</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -221,6 +225,8 @@
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
 			<string>89A45B8D-213F-45C8-A20D-552A58759650</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -236,6 +242,8 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>ED86E1B9-3E03-4E88-9089-2605B9B5BF9D</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -263,12 +271,16 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>DC688C1F-0AF8-4CC7-929C-03FC8177A130</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>type</key>
 			<string>alfred.workflow.output.largetype</string>
 			<key>uid</key>
 			<string>D6682F94-5F2E-48FD-B308-0D8CF2153EED</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -296,6 +308,8 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>2E923056-3A48-4834-92A0-8F559CA53AFD</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -323,6 +337,8 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>20594C85-46DF-461E-9727-B0440A793828</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -354,6 +370,8 @@ end</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>FCDA9328-F736-413F-BBE8-CD6922779A43</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -374,6 +392,8 @@ end</string>
 			<string>alfred.workflow.trigger.action</string>
 			<key>uid</key>
 			<string>4A9D23E0-F44E-4963-8E6D-267CF8F13BAF</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -387,6 +407,8 @@ end</string>
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>C5C63058-C4C3-4B70-8822-39513324C235</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -399,16 +421,26 @@ end</string>
 require "bundle/bundler/setup"
 require "alfred"
 
+require 'plist'
 require 'uri'
 
 path = "{query}"
+
 Alfred.with_friendly_error do |alfred|
   unless File.exist?(path)
     raise ArgumentError, "#{path} does not exist!"
   end
 
-  uri = URI.parse(%x{mdls -name kMDItemURL -raw '#{path}'})
-  puts uri.to_s
+  url = ''
+  if File.extname(path).eql?(".webloc")
+    webloc = Plist::parse_xml( File.read(path) )
+    url = webloc['URL']
+  else
+    uri = URI.parse(%x{mdls -name kMDItemURL -raw "#{path}"})
+    url = uri.to_s
+  end
+
+  puts url
 end</string>
 				<key>type</key>
 				<integer>2</integer>
@@ -417,26 +449,8 @@ end</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>3AB1E143-62B3-4BE3-9600-03EEAD67DDC3</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>acceptsmulti</key>
-				<false/>
-				<key>filetypes</key>
-				<array>
-					<string>com.apple.safari.bookmark</string>
-					<string>com.apple.safari.history</string>
-					<string>com.apple.web-internet-location</string>
-					<string>dyn.ah62d4rv4ge81n6xq</string>
-				</array>
-				<key>name</key>
-				<string>Copy URL</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.action</string>
-			<key>uid</key>
-			<string>C01139EB-3E28-401F-86AA-19290DC35752</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -460,6 +474,30 @@ end</string>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>8248B621-67D6-442E-A95F-F225819F1C83</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<false/>
+				<key>filetypes</key>
+				<array>
+					<string>com.apple.safari.bookmark</string>
+					<string>com.apple.safari.history</string>
+					<string>com.apple.web-internet-location</string>
+					<string>dyn.ah62d4rv4ge81n6xq</string>
+				</array>
+				<key>name</key>
+				<string>Copy URL</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>C01139EB-3E28-401F-86AA-19290DC35752</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -479,6 +517,8 @@ end</string>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>347BA546-5D5F-4626-8365-A4FD6A1DF587</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -494,6 +534,8 @@ end</string>
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>BC48D647-DA65-49BB-9131-A860ED987F3D</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -513,6 +555,8 @@ end</string>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>079103B5-688A-4CAD-A93F-F4BC99AB739F</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -528,6 +572,8 @@ end</string>
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>BEC5A753-4A4E-4260-873C-25B58DAD1027</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -547,6 +593,8 @@ end</string>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>134FEC38-77CA-42CD-A520-B42BD0F6B6FC</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -566,6 +614,8 @@ end</string>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>BD2CD1D4-2752-4F41-8139-C826A82930FE</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -645,7 +695,7 @@ end</string>
 		<key>C01139EB-3E28-401F-86AA-19290DC35752</key>
 		<dict>
 			<key>ypos</key>
-			<real>750</real>
+			<real>760</real>
 		</dict>
 		<key>C5C63058-C4C3-4B70-8822-39513324C235</key>
 		<dict>
