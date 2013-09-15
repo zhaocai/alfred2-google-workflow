@@ -33,14 +33,10 @@ def generate_feedback(alfred, query)
       query = %Q{site:#{uri.host} #{query}}
     end
   end
-  feedback.add_item({
-    :uid      => "Google Default Search",
-    :title    => "Search '#{query}'",
-    :subtitle => "Open brower for more results.",
-    :arg      => URI.escape("http://www.google.com/search?as_q=#{query}&lr=lang_"),
-  })
 
   search = Google::Search::Web.new(:query => "#{query}")
+
+  i = 0
   search.each do |result|
     feedback.add_item({
       :uid      => result.uri,
@@ -48,6 +44,17 @@ def generate_feedback(alfred, query)
       :subtitle => result.uri,
       :arg      => result.uri,
     })
+    i = 1 + i
+    if i == 2
+      goto_google_icon = {:type => "default", :name => "goto_google.png"}
+      feedback.add_item({
+        :title    => "Search '#{query}' in the brower",
+        :subtitle => "Open brower for more results.",
+        :arg      => URI.escape("http://www.google.com/search?as_q=#{query}&lr=lang_"),
+        :icon     => goto_google_icon,
+      })
+    end
+    break if i > 30
   end
 
   puts feedback.to_alfred

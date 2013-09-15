@@ -38,12 +38,6 @@ def generate_feedback(alfred, query)
     uri = URI.parse(%x{osascript browser_url.scpt})
     related_query = %Q{related:#{uri.to_s}}
   end
-  feedback.add_item({
-    :uid      => "Google Default Search",
-    :title    => "Search '#{related_query} #{query}'",
-    :subtitle => "Open brower for more results.",
-    :arg      => URI.escape("http://www.google.com/search?as_q=#{related_query}+#{query}&lr=lang_"),
-  })
 
   search = Google::Search::Web.new(:query => "#{related_query}+#{query}")
 
@@ -56,7 +50,18 @@ def generate_feedback(alfred, query)
       :subtitle => result.uri,
       :arg      => result.uri,
     })
+
     i = 1 + i
+    if i == 2
+      goto_google_icon = {:type => "default", :name => "goto_google.png"}
+      feedback.add_item({
+        :title    => "Search '#{related_query} #{query}'",
+        :subtitle => "Open brower for more results.",
+        :arg      => URI.escape("http://www.google.com/search?as_q=#{related_query}+#{query}&lr=lang_"),
+        :icon     => goto_google_icon,
+      })
+    end
+
     break if i > 40
   end
 

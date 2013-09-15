@@ -31,23 +31,29 @@ def generate_feedback(alfred, query)
 
   gs = GoogleSuggest.new
 
-  feedback.add_item({
-    :uid      => "Google Default Search",
-    :title    => "Search '#{query}'",
-    :subtitle => "Open brower for more results.",
-    :arg      => query,
-  })
-
+  i = 0
   icon = {:type => "default", :name => "icon.png"}
   gs.suggest_for(query).each do |s|
     feedback.add_item({
-      :uid                => "Google Search: #{s[:text]}"    ,
       :title              => s[:text]                        ,
       :subtitle           => "Search Google for #{s[:text]}" ,
       :arg                => s[:text]                        ,
       :autocomplete       => s[:text]                        ,
       :icon               => icon                            ,
     })
+
+    i = 1 + i
+    if i == 2
+      goto_google_icon = {:type => "default", :name => "goto_google.png"}
+      feedback.add_item({
+        :title    => "Search '#{query}'",
+        :subtitle => "Open brower for more results.",
+        :icon     => goto_google_icon,
+        :arg      => query,
+        :icon     => goto_google_icon,
+      })
+    end
+
   end
 
   puts feedback.to_xml
@@ -61,6 +67,7 @@ if __FILE__ == $PROGRAM_NAME
   Alfred.with_friendly_error do |alfred|
     alfred.with_rescue_feedback = true
     query = ARGV.join(" ").strip
+
     generate_feedback(alfred, query)
   end
 end
