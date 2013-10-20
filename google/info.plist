@@ -97,17 +97,17 @@
 				<key>destinationuid</key>
 				<string>54284EB3-C072-483C-8D12-3F05B41706B7</string>
 				<key>modifiers</key>
-				<integer>1048576</integer>
+				<integer>0</integer>
 				<key>modifiersubtext</key>
-				<string>Alfred Google Instant Search</string>
+				<string></string>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>162A0644-70EA-468E-B2D4-590EF685234B</string>
 				<key>modifiers</key>
-				<integer>0</integer>
+				<integer>1048576</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Search in Browser</string>
 			</dict>
 		</array>
 		<key>89A45B8D-213F-45C8-A20D-552A58759650</key>
@@ -530,7 +530,7 @@ end</string>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>gt</string>
+				<string>trend</string>
 				<key>subtext</key>
 				<string>'{query}'</string>
 				<key>text</key>
