@@ -16,7 +16,7 @@
 ($LOAD_PATH << File.expand_path("..", __FILE__)).uniq!
 
 require 'rubygems' unless defined? Gem
-require "bundle/bundler/setup"
+require "./bundle/bundler/setup"
 require "alfred"
 
 require 'google-search'
@@ -39,8 +39,8 @@ def generate_feedback(alfred, query)
     if i == 2
       goto_google_icon = {:type => "default", :name => "goto_google.png"}
       feedback.add_item({
-        :title    => "Search '#{query}' in the brower.",
-        :subtitle => "Open brower for more results.",
+        :title    => "Search '#{query}' in the browser.",
+        :subtitle => "Open browser for more results.",
         :arg      => URI.escape("http://www.google.com/search?as_q=#{query}&lr=lang_"),
         :icon     => goto_google_icon,
       })

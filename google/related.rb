@@ -56,7 +56,7 @@ def generate_feedback(alfred, query)
       goto_google_icon = {:type => "default", :name => "goto_google.png"}
       feedback.add_item({
         :title    => "Search '#{related_query} #{query}'",
-        :subtitle => "Open brower for more results.",
+        :subtitle => "Open browser for more results.",
         :arg      => URI.escape("http://www.google.com/search?as_q=#{related_query}+#{query}&lr=lang_"),
         :icon     => goto_google_icon,
       })

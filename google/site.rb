@@ -22,6 +22,12 @@ require "alfred"
 require 'google-search'
 require 'uri'
 
+##
+# fix text like &#39; which was escaped twice
+# 
+def fix_escape(text)
+  text.gsub(/\&\#([0-9]+);/) { |i| $1.to_i.chr }
+end
 
 def generate_feedback(alfred, query)
 
@@ -40,7 +46,7 @@ def generate_feedback(alfred, query)
   search.each do |result|
     feedback.add_item({
       :uid      => result.uri,
-      :title    => result.title,
+      :title    => fix_escape(result.title),
       :subtitle => result.uri,
       :arg      => result.uri,
     })
@@ -48,8 +54,8 @@ def generate_feedback(alfred, query)
     if i == 2
       goto_google_icon = {:type => "default", :name => "goto_google.png"}
       feedback.add_item({
-        :title    => "Search '#{query}' in the brower",
-        :subtitle => "Open brower for more results.",
+        :title    => "Search '#{query}' in the browser",
+        :subtitle => "Open browser for more results.",
         :arg      => URI.escape("http://www.google.com/search?as_q=#{query}&lr=lang_"),
         :icon     => goto_google_icon,
       })

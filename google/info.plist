@@ -194,7 +194,7 @@ end tellend alfred_script</string>
 				<key>runningsubtext</key>
 				<string>Retrieving search suggestions ...</string>
 				<key>script</key>
-				<string>/usr/bin/ruby ./suggest.rb {query}</string>
+				<string>LANG=en_US.UTF-8 /usr/bin/ruby ./suggest.rb {query}</string>
 				<key>subtext</key>
 				<string>Search Google with Suggestions</string>
 				<key>title</key>
@@ -265,7 +265,7 @@ end tellend alfred_script</string>
 				<key>runningsubtext</key>
 				<string>searching...</string>
 				<key>script</key>
-				<string>/usr/bin/ruby ./instant.rb {query}</string>
+				<string>LANG=en_US.UTF-8 /usr/bin/ruby ./instant.rb {query}</string>
 				<key>subtext</key>
 				<string>Just type and go...</string>
 				<key>title</key>
@@ -319,7 +319,7 @@ end tellend alfred_script</string>
 				<key>runningsubtext</key>
 				<string>searching...</string>
 				<key>script</key>
-				<string>/usr/bin/ruby ./site.rb {query}</string>
+				<string>LANG=en_US.UTF-8 /usr/bin/ruby ./site.rb {query}</string>
 				<key>subtext</key>
 				<string>with site from the front browser</string>
 				<key>title</key>
@@ -348,7 +348,7 @@ end tellend alfred_script</string>
 				<key>runningsubtext</key>
 				<string>searching...</string>
 				<key>script</key>
-				<string>/usr/bin/ruby ./related.rb {query}</string>
+				<string>LANG=en_US.UTF-8 /usr/bin/ruby ./related.rb {query}</string>
 				<key>subtext</key>
 				<string>wite site from front browser</string>
 				<key>title</key>
