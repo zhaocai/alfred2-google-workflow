@@ -56,6 +56,17 @@ def generate_feedback(alfred, query)
 
   end
 
+  if feedback.items.length == 0
+    feedback.add_item({
+                          :title              => query                        ,
+                          :subtitle           => "Search Google for #{query}" ,
+                          :arg                => query                        ,
+                          :autocomplete       => query                        ,
+                          :icon               => icon                         ,
+    })
+  end
+
+
   puts feedback.to_xml
 end
 
