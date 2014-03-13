@@ -43,7 +43,12 @@ class GoogleSuggest
              :q => URI.encode(keyword)}
     res = http_get('/complete/search', query)
 
-    doc = REXML::Document.new(res.body.to_s)
+    result_body = if res['content-type'] =~ /iso-8859-1/i
+      res.body.to_s.force_encoding("ISO-8859-1").encode("UTF-8")
+    else
+      res.body.to_s
+    end
+    doc = REXML::Document.new(result_body)
 
     suggestions = []
     doc.elements.each("toplevel/CompleteSuggestion/suggestion") { |elem |
@@ -61,7 +66,7 @@ class GoogleSuggest
 
   def http
     if @proxy
-      proxy_url = URI.parse(@proxy) 
+      proxy_url = URI.parse(@proxy)
       http_class = Net::HTTP.Proxy(proxy_url.host, proxy_url.port)
     else
       http_class = Net::HTTP
@@ -69,7 +74,7 @@ class GoogleSuggest
     http_class.new(GOOGLE_HOST)
   end
 
-  def http_get(path, query) 
+  def http_get(path, query)
     path = path + '?' + query.map{|k,v| "#{k}=#{v}"}.join('&')
     req = Net::HTTP::Get.new(path)
     http.request(req)
